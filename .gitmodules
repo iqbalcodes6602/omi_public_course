@@ -1,0 +1,3 @@
+[submodule "omegaUp-deploy"]
+	path = utils
+	url = https://github.com/omegaup/omegaUp-deploy.git
