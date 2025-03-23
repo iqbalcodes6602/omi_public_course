@@ -1,6 +1,6 @@
 Ha habido un derrame de petroleo en el golfo y una organización ecologista internacional te ha contratado para escribir un programa que los ayude a calcular la gravedad del impacto ambiental.
 
-Te van a dar una cuadrícula de $R$ filas y $C$ columnas, que representan el entorno que rodea la plataforma petrolera. El derrame se originó en la plataforma, que se marcará en su mapa con un '$'. Las casillas de tierra se marcarán con un '#' y las casillas del mar se marcarán con un '.'. Cada día que pasa después de la explosión inicial, cada cuadrado de mar adyacente (norte, este, sur u oeste) a la plataforma petrolera o a una plaza marítima, previamente cubierta de petróleo, queda cubierto por el petróleo. Las plazas terrestres nunca son cubiertas por petróleo
+Te van a dar una cuadrícula de $R$ filas y $C$ columnas, que representan el entorno que rodea la plataforma petrolera. El derrame se originó en la plataforma, que se marcará en su mapa con un '$'. Las casillas de tierra se marcarán con un '#' y las casillas del mar se marcarán con un '.'. Cada día que pasa después de la explosión inicial, cada cuadrado de mar adyacente (norte, este, sur u oeste) a la plataforma petrolera o a una plaza marítima, previamente cubierta de petróleo, queda cubierto por el petróleo. Las plazas terrestres nunca son cubiertas por petróleo.
 
 # Problema
 
