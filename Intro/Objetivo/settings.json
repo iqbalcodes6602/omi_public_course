@@ -1,5 +1,5 @@
 {
-  "title": "Demo de Objetivo",
+  "title": "Objetivo del curso",
   "source": "Curso OMI",
 
   "limits": {
@@ -19,7 +19,7 @@
   },
 
   "misc": {
-    "alias": "demo-de-objetivo",
+    "alias": "COMI-Objetivo",
     "visibility": 1,
     "languages": "none",
     "email_clarifications": 0,
