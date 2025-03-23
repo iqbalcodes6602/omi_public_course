@@ -1,1 +1,0 @@
-tests/solutions/solution.cpp
