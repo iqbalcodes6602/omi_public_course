@@ -3,7 +3,7 @@ Objetivo
 La Olimpiada Mexicana de Informática (OMI) tiene como objetivo principal promover entre los estudiantes
 del país, el interés por la informática y las ciencias de la computación. Como parte de los
 esfuerzos para alcanzar este objetivo se ha elaborado el siguiente **Curso Introductorio a la OMI**,
-este curso tiene como objetivos particulares
+este curso tiene como objetivos particulares demo:
 
 1. Organizar y presentar desde cero los temas y conocimientos básicos que deben adquirir y dominar los entrenadores
 y participantes de la Olimpiada Mexicana de Informática.
@@ -11,7 +11,7 @@ y participantes de la Olimpiada Mexicana de Informática.
 con la intención de participar o colaborar en la OMI.
 3. Homogeneizar la base de conocimientos que dominen los participantes en la OMI.
 
-Este curso presenta los siguientes contenidos:
+Este curso presenta los siguientes contenidos
 
 1. Programación básica
  * Lectura y escritura de datos en la entrada estándar
