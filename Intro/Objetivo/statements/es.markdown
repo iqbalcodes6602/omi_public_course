@@ -9,7 +9,6 @@ este curso tiene como objetivos particulares demo:
 y participantes de la Olimpiada Mexicana de Informática.
 2. Proporcionar una herramienta de utilidad para los jóvenes y profesores que deseen iniciar un proceso de entrenamiento
 con la intención de participar o colaborar en la OMI.
-3. Homogeneizar la base de conocimientos que dominen los participantes en la OMI.
 
 Este curso presenta los siguientes contenidos
 
