@@ -15,7 +15,7 @@ env:
 
 jobs:
   build-test-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Set base commit (pull request)
       run: |
@@ -101,17 +101,17 @@ jobs:
 
     - name: Upload logs
       if: ${{ always() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: omegaUp-CI-logs
         path: results.zip
 
-    - name: Notify Slack on failure
-      uses: 8398a7/action-slack@v3
-      with:
-        status: ${{ job.status }}
-        fields: repo,message,commit,author,action,eventName,ref,workflow
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: ${{ failure() && github.ref == 'refs/heads/main' }}
+    # - name: Notify Slack on failure
+    #   uses: 8398a7/action-slack@v3
+    #   with:
+    #     status: ${{ job.status }}
+    #     fields: repo,message,commit,author,action,eventName,ref,workflow
+    #   env:
+    #     GITHUB_TOKEN: ${{ github.token }}
+    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    #   if: ${{ failure() && github.ref == 'refs/heads/main' }}
