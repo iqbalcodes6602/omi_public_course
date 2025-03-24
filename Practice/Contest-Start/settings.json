@@ -6,7 +6,8 @@
     "alias": "Contest-Start",
     "languages": "none",
     "visibility": 1,
-    "email_clarifications": 0
+    "email_clarifications": 0,
+    "admins": ["iqbal6602"]
   },
 
   "validator": {
