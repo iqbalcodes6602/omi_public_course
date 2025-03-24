@@ -40,8 +40,10 @@
     "MemoryLimit": 33554432,
     "OutputLimit": 10240,
     "OverallWallTimeLimit": "23.423s",
-    "TimeLimit": "1s"
+    "TimeLimit": "1s",
+    "InputLimit": 32768,
   },
+  
   "Slow": false,
   "Validator": {
     "Name": "token",
