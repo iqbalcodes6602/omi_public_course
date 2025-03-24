@@ -1,0 +1,34 @@
+{
+  "Cases": [
+    {
+      "Cases": [
+        {
+          "Name": "sin_grupo.1",
+          "Weight": 33.333333333333336
+        },
+        {
+          "Name": "sin_grupo.2",
+          "Weight": 33.333333333333336
+        },
+        {
+          "Name": "sin_grupo.3",
+          "Weight": 33.333333333333336
+        }
+      ],
+      "Name": "sin_grupo"
+    }
+  ],
+  "Limits": {
+    "ExtraWallTime": "0s",
+    "MemoryLimit": 33554432,
+    "OutputLimit": 10240,
+    "OverallWallTimeLimit": "23.423s",
+    "TimeLimit": "1s"
+  },
+  "Slow": false,
+  "Validator": {
+    "Name": "token",
+    "Tolerance": 1e-9,
+    "GroupScorePolicy": "sum-if-not-zero"
+  }
+}
