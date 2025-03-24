@@ -41,9 +41,9 @@
     "OutputLimit": 10240,
     "OverallWallTimeLimit": "23.423s",
     "TimeLimit": "1s",
-    "InputLimit": 32768,
+    "InputLimit": 32768
   },
-  
+
   "Slow": false,
   "Validator": {
     "Name": "token",
