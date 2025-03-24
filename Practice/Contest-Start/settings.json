@@ -8,6 +8,13 @@
     "email_clarifications": 0
   },
 
+  "validator": {
+    "name": "token-caseless",
+    "limits": {
+      "TimeLimit": 1000
+    }
+  },
+
   "Cases": [
     {
       "Cases": [
