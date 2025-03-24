@@ -1,4 +1,22 @@
 {
+  "title": "Contest Start",
+  "source": "Contest Start",
+
+  "misc": {
+    "alias": "Contest-Start",
+    "languages": "none",
+    "visibility": 1,
+    "email_clarifications": 0,
+    "admins": ["iqbal6602"]
+  },
+
+  "validator": {
+    "name": "token-caseless",
+    "limits": {
+      "TimeLimit": 1000
+    }
+  },
+
   "Cases": [
     {
       "Cases": [
@@ -18,13 +36,15 @@
       "Name": "sin_grupo"
     }
   ],
-  "Limits": {
-    "ExtraWallTime": "0s",
+  "limits": {
+    "ExtraWallTime": 0,
     "MemoryLimit": 33554432,
     "OutputLimit": 10240,
-    "OverallWallTimeLimit": "23.423s",
-    "TimeLimit": "1s"
+    "OverallWallTimeLimit": 23423,
+    "TimeLimit": 1000,
+    "InputLimit": 32768
   },
+
   "Slow": false,
   "Validator": {
     "Name": "token",
