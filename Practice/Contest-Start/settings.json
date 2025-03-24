@@ -5,6 +5,7 @@
   "misc": {
     "alias": "Contest-Start",
     "languages": "none",
+    "visibility": 1,
     "email_clarifications": 0
   },
 
