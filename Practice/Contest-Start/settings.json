@@ -1,4 +1,13 @@
 {
+  "title": "Contest Start",
+  "source": "Contest Start",
+
+  "misc": {
+    "alias": "Contest-Start",
+    "languages": "none",
+    "email_clarifications": 0
+  },
+
   "Cases": [
     {
       "Cases": [
