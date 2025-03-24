@@ -36,11 +36,11 @@
     }
   ],
   "limits": {
-    "ExtraWallTime": "0s",
+    "ExtraWallTime": 0,
     "MemoryLimit": 33554432,
     "OutputLimit": 10240,
-    "OverallWallTimeLimit": "23.423s",
-    "TimeLimit": "1s",
+    "OverallWallTimeLimit": 23423,
+    "TimeLimit": 1000,
     "InputLimit": 32768
   },
 
