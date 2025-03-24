@@ -34,7 +34,7 @@
       "Name": "sin_grupo"
     }
   ],
-  "Limits": {
+  "limits": {
     "ExtraWallTime": "0s",
     "MemoryLimit": 33554432,
     "OutputLimit": 10240,
