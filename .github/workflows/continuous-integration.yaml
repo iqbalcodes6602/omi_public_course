@@ -15,7 +15,7 @@ env:
 
 jobs:
   build-test-deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Set base commit (pull request)
       run: |
@@ -34,7 +34,7 @@ jobs:
         git config --global core.quotePath false
         echo "PIPENV_PIPFILE=$(pwd)/utils/Pipfile" >> $GITHUB_ENV
     - name: Set up Python
-      uses: actions/setup-python@v1
+      - uses: actions/setup-python@v5
       with:
         python-version: '3.8'
 
