@@ -1,10 +1,10 @@
 {
-    "problems": [
-      {
-        "path": "OMI-Public-Course/Intro/Objetivo"
-      },
-      {
-        "path": "OMI-Public-Course/Practice/Contest-Start"
-      }
-    ]
-  }
+  "problems": [
+    {
+      "path": "OMI-Public-Course/Intro/Objetivo"
+    },
+    {
+      "path": "OMI-Public-Course/Practice/Contest-Start"
+    }
+  ]
+}
