@@ -1,7 +1,9 @@
 Objetivo
 ==========================================
 
-hello this is a sample course to deliver a proof of concept for this year's Gsoc 2025 project Public Courses on github.
+Updated on Apr 19, 2025
+
+Hello this is a sample course to deliver a proof of concept for this year's Gsoc 2025 project Public Courses on github.
 
 I have created a repository which links this course here - 
 https://github.com/iqbalcodes6602/omi_public_course
