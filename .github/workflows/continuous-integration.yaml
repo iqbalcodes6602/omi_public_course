@@ -47,7 +47,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        (cd utils && sudo pip install pipenv && pipenv install)
+        (cd utils && sudo pip install pipenv==2023.11.15 && pipenv install)
     - name: Set up the CI flags.
       run: |
         # When the utils/ directory is changed, run all tests to avoid
