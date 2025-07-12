@@ -1,0 +1,82 @@
+{
+  "name": "Intro",
+  "alias": "intro",
+  "description": "we will give intro here",
+  "assignment_type": "lesson",
+  "start_time": 1742827620,
+  "finish_time": 1742845620,
+  "problems": [
+    {
+      "title": "Demo de Objetivo",
+      "alias": "demo-de-objetivo",
+      "visibility": 1,
+      "visits": 0,
+      "submissions": 0,
+      "accepted": 0,
+      "quality_seal": false,
+      "input_limit": 10240,
+      "difficulty": 0,
+      "order": 1,
+      "languages": "",
+      "has_submissions": false,
+      "points": 0,
+      "commit": "f42005a92ad199f1ef34422f13caa6ed34750be0",
+      "version": "2c03a569b8f13132f017c91ae007481f2ee9f1af",
+      "is_extra_problem": false,
+      "letter": "A",
+      "accepts_submissions": false,
+      "quality_payload": {
+        "nominated": false,
+        "dismissed": false,
+        "nominatedBeforeAc": false,
+        "dismissedBeforeAc": false,
+        "tried": false,
+        "solved": false,
+        "language": "es",
+        "canNominateProblem": true,
+        "problemAlias": "demo-de-objetivo"
+      }
+    }
+  ],
+  "courseAssignments": [
+    {
+      "problemset_id": 47619,
+      "name": "Intro",
+      "description": "we will give intro here",
+      "alias": "intro",
+      "publish_time_delay": null,
+      "assignment_type": "lesson",
+      "start_time": 1742827620,
+      "finish_time": 1742845620,
+      "max_points": 0,
+      "order": 1,
+      "has_runs": false,
+      "scoreboard_url": "ywGLsrRBR6KNjvHEXaRhzmqGavaUPC",
+      "scoreboard_url_admin": "53Yu7pB9qyn9hcNHdg3KHjyUEDMSG3",
+      "opened": false,
+      "problemCount": 1
+    },
+    {
+      "problemset_id": 47620,
+      "name": "Practice",
+      "description": "this is a demo sample problem to practice",
+      "alias": "practice",
+      "publish_time_delay": null,
+      "assignment_type": "homework",
+      "start_time": 1742827620,
+      "finish_time": 1742845620,
+      "max_points": 0,
+      "order": 3,
+      "has_runs": false,
+      "scoreboard_url": "rqjv8wNh32LW97DDWvpecwWGpQYGw2",
+      "scoreboard_url_admin": "EVZ6mFjBBe26RSwvw8tm2cmeduH4ph",
+      "opened": false,
+      "problemCount": 2
+    }
+  ],
+  "director": "iqbal6602",
+  "problemset_id": 47619,
+  "admin": true,
+  "status": "ok",
+  "_id": "6872688489bf0834265462"
+}
