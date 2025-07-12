@@ -1,0 +1,61 @@
+# Contest Start
+
+new test problem addition. update 2
+
+# Input
+The first line contains a single integer k (1≤k≤1000) — the number of test cases.
+
+Each of the next k lines contains three integers n, x, t (1≤n,x,t≤2⋅109) — the number of participants, the start interval and the contest duration.
+
+# Output
+Print k lines, in the i-th line print the total dissatisfaction of participants in the i-th test case.
+
+# Ejemplo
+
+||input
+4
+4 2 5
+3 1 2
+3 3 10
+2000000000 1 2000000000
+||output
+5
+3
+3
+1999999999000000000
+||description
+In the first example the first participant starts at 0
+ and finishes at time 5
+. By that time the second and the third participants start, so the dissatisfaction of the first participant is 2
+.
+
+The second participant starts at time 2
+ and finishes at time 7
+. By that time the third the fourth participants start, so the dissatisfaction of the second participant is 2
+.
+
+The third participant starts at 4
+ and finishes at 9
+. By that time the fourth participant starts, so the dissatisfaction of the third participant is 1
+.
+
+The fourth participant starts at 6
+ and finishes at 11
+. By time 11
+ everyone finishes the contest, so the dissatisfaction of the fourth participant is 0
+.
+
+In the second example the first participant starts at 0
+ and finishes at time 2
+. By that time the second participants starts, and the third starts at exactly time 2
+. So the dissatisfaction of the first participant is 2
+.
+
+The second participant starts at time 1
+ and finishes at time 3
+. At that time the third participant is solving the contest.
+||end
+
+
+# Boundaries
+sdsfasdas
