@@ -6,11 +6,14 @@ import logging
 import os
 import zipfile
 from typing import Dict, Any
-from urllib.parse import urljoin
-import requests
-from tqdm import tqdm
+from urllib.parse import urlparse, urljoin
 import omegaup.api
 import shutil
+import http.client
+import ssl
+
+# Create SSL context that skips certificate verification
+context = ssl._create_unverified_context()
 
 logging.basicConfig(level=logging.INFO)
 LOG = logging.getLogger(__name__)
@@ -77,25 +80,36 @@ def get_assignment_details(course_alias: str, assignment_alias: str):
 
 
 
+
+
 def download_and_unzip(problem_alias: str, assignment_folder: str):
     try:
         download_url = urljoin(BASE_URL, f"/api/problem/download/problem_alias/{problem_alias}/")
+        parsed_url = urlparse(download_url)
+        conn = http.client.HTTPSConnection(parsed_url.hostname, context=context)
+
         headers = {'Authorization': f'token {API_CLIENT.api_token}'}
-        response = requests.get(download_url, stream=True, headers=headers)
+        path = parsed_url.path
 
+        conn.request("GET", path, headers=headers)
+        response = conn.getresponse()
 
-        if response.status_code == 404:
+        if response.status == 404:
             LOG.warning(f"⚠️  Problem '{problem_alias}' not found or access denied (404).")
             return
-
-        response.raise_for_status()
+        elif response.status != 200:
+            LOG.error(f"❌ Failed to download '{problem_alias}'. HTTP status: {response.status}")
+            return
 
         problem_folder = os.path.join(assignment_folder, sanitize_filename(problem_alias))
         os.makedirs(problem_folder, exist_ok=True)
 
         zip_path = os.path.join(problem_folder, f"{problem_alias}.zip")
         with open(zip_path, "wb") as f:
-            for chunk in response.iter_content(chunk_size=8192):
+            while True:
+                chunk = response.read(8192)
+                if not chunk:
+                    break
                 f.write(chunk)
 
         try:
@@ -127,6 +141,8 @@ def download_and_unzip(problem_alias: str, assignment_folder: str):
         LOG.error(f"❌ Failed to download '{problem_alias}': {e}")
 
 
+
+
 def main():
     global API_CLIENT
     api_token = handle_input()
@@ -147,7 +163,7 @@ def main():
 
             course_folder = os.path.join(BASE_COURSE_FOLDER, course_alias)
 
-            for assignment in tqdm(assignments, desc=f"Assignments in {course_alias}"):
+            for assignment in assignments:
                 assignment_alias = assignment["alias"]
                 assignment_name = assignment["name"]
                 LOG.info(f"📂 Processing assignment: {assignment_name} ({assignment_alias})")
@@ -163,7 +179,7 @@ def main():
 
                     problems = details.get("problems", [])
 
-                    for problem in tqdm(problems, desc=f"  ↳ {assignment_alias}", leave=False):
+                    for problem in problems:
                         try:
                             download_and_unzip(problem["alias"], assignment_folder)
                             rel_path = os.path.join(
@@ -186,6 +202,7 @@ def main():
         LOG.info(f"Writing problems.json to {problems_json_path}")
         json.dump({"problems": all_problems}, f, indent=2, ensure_ascii=False)
     LOG.info("📝 Created problems.json with all problem paths.")
+
 
 
 if __name__ == "__main__":
