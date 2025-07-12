@@ -535,7 +535,7 @@ def uploadProblemZip(client: omegaup.api.Client,
                     course_alias=course_alias,
                     assignment_alias=assignment_alias,
                     problem_alias=alias,
-                    commit=commit,
+                    # commit=commit,
                     # is_extra_problem=getattr(details, 'is_extra_problem', False),
                     points=getattr(details, 'points', 100.0),
                     check_=False
