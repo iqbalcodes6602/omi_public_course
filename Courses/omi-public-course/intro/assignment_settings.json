@@ -16,12 +16,12 @@
       "quality_seal": false,
       "input_limit": 10240,
       "difficulty": 0,
-      "order": 1,
+      "order": 2,
       "languages": "",
       "has_submissions": false,
       "points": 0,
-      "commit": "f42005a92ad199f1ef34422f13caa6ed34750be0",
-      "version": "2c03a569b8f13132f017c91ae007481f2ee9f1af",
+      "commit": "261e980f8c58c2bc55de92dcd77b38339e7a6e49",
+      "version": "064fe866b1047bb60fff9a33d131da30ec8c361d",
       "is_extra_problem": false,
       "letter": "A",
       "accepts_submissions": false,
@@ -78,5 +78,5 @@
   "problemset_id": 47619,
   "admin": true,
   "status": "ok",
-  "_id": "6872926740d23573909484"
+  "_id": "68733abc9107f790314763"
 }
