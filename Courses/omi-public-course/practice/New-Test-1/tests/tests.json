@@ -1,0 +1,16 @@
+{
+	"solutions": [
+		{
+			"filename": "solutions/AC.py",
+			"score_range": [1, 1],
+			"verdict": "AC"
+		},
+		{
+			"filename": "solutions/PA.cpp",
+			"verdict": "PA"
+		}
+	],
+	"inputs": {
+		"filename": "test-validator.py"
+	}
+}

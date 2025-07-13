@@ -3,36 +3,50 @@
     {
       "Cases": [
         {
-          "Name": "sin_grupo.1",
-          "Weight": 1
+          "Name": "easy.00",
+          "Weight": 20
         },
         {
-          "Name": "sin_grupo.2",
-          "Weight": 1
-        },
-        {
-          "Name": "sin_grupo.3",
-          "Weight": 1
-        },
-        {
-          "Name": "sin_grupo.4",
-          "Weight": 1
+          "Name": "easy.01",
+          "Weight": 20
         }
       ],
-      "Name": "sin_grupo"
+      "Name": "easy"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "medium.00",
+          "Weight": 27
+        },
+        {
+          "Name": "medium.01",
+          "Weight": 28
+        }
+      ],
+      "Name": "medium"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "sample",
+          "Weight": 5
+        }
+      ],
+      "Name": "sample"
     }
   ],
   "Limits": {
     "ExtraWallTime": "0s",
     "MemoryLimit": 33554432,
     "OutputLimit": 10240,
-    "OverallWallTimeLimit": "23ms",
-    "TimeLimit": "1ms"
+    "OverallWallTimeLimit": "1s",
+    "TimeLimit": "1s"
   },
   "Slow": false,
   "Validator": {
-    "Name": "token-caseless",
-    "Tolerance": 1e-09,
+    "Name": "token-numeric",
+    "Tolerance": 1e-9,
     "GroupScorePolicy": "sum-if-not-zero"
   },
   "alias": "New-Test-1",

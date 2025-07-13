@@ -1,0 +1,13 @@
+{
+	"solutions": [
+		{
+			"filename": "AC.py",
+			"score_range": [1, 1],
+			"verdict": "AC"
+		},
+		{
+			"filename": "PA.cpp",
+			"verdict": "PA"
+		}
+	]
+}
