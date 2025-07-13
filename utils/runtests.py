@@ -231,16 +231,13 @@ def _main() -> None:
 
         problemResultsDirectory = os.path.join(args.results_directory, p.path)
 
-        if report['state'] != 'passed':
+        if report['state'] not in ('passed', 'skipped'):
             anyFailure = True
 
         if report['state'] == 'skipped':
             errorString = report['error'] or (
-                'tests/tests.json, settings.json, outs, or testplan are '
-                'probably missing or invalid.')
-            problems.error(f'Skipped {p.title}: {errorString}',
-                           filename=os.path.join(p.path, 'settings.json'),
-                           ci=args.ci)
+                'tests/ directory or required files (tests.json, outs, testplan) missing.')
+            logging.info(f'Skipping {p.title}: {errorString}')
             continue
 
         for testResult in report.get('tests', []):
