@@ -4,11 +4,11 @@
       "Cases": [
         {
           "Name": "easy.00",
-          "Weight": 20
+          "Weight": 1
         },
         {
           "Name": "easy.01",
-          "Weight": 20
+          "Weight": 1
         }
       ],
       "Name": "easy"
@@ -17,11 +17,11 @@
       "Cases": [
         {
           "Name": "medium.00",
-          "Weight": 27
+          "Weight": 1
         },
         {
           "Name": "medium.01",
-          "Weight": 28
+          "Weight": 1
         }
       ],
       "Name": "medium"
@@ -30,7 +30,7 @@
       "Cases": [
         {
           "Name": "sample",
-          "Weight": 5
+          "Weight": 1
         }
       ],
       "Name": "sample"
