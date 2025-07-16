@@ -20,7 +20,7 @@
       "languages": "",
       "has_submissions": false,
       "points": 0,
-      "commit": "553b0e967644c3987fec2c6fd90981662b2620e1",
+      "commit": "b3b13fbc192fb6edc3f9fbff27d9c2fdb2807fff",
       "version": "3fe70970b8e6d76a5d00ae0beb8eea14923e8901",
       "is_extra_problem": false,
       "letter": "A",
@@ -51,7 +51,7 @@
       "languages": "",
       "has_submissions": false,
       "points": 0,
-      "commit": "c0088e693a2c6d0bfe4858cfe6ad0331e8fcde55",
+      "commit": "04ea68d0c917fabf8120a4a2b8f3cec3ccb31fed",
       "version": "376ffb3b4aeab13e9b675fefbab553fbb865002f",
       "is_extra_problem": false,
       "letter": "B",
@@ -109,5 +109,5 @@
   "problemset_id": 47620,
   "admin": true,
   "status": "ok",
-  "_id": "68767c64862e9709648716"
+  "_id": "687771fa88c4a730244171"
 }
