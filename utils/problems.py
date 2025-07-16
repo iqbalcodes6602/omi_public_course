@@ -174,8 +174,7 @@ def problems(allProblems: bool = False,
     for problem in configProblems:
         logging.info('Loading %s.', problem.title)
 
-        changed_files = set(changes.strip().split('\n'))
-        if problem.path not in changed_files:
+        if problem.path not in changes:
             logging.info('No changes to %s. Skipping.', problem.title)
             continue
         problems.append(problem)
