@@ -87,7 +87,7 @@ def download_and_unzip(problem_alias: str, assignment_folder: str):
             LOG.warning(f"⚠️  Problem '{problem_alias}' not found or access denied (404).")
             return
         elif response.status != 200:
-            LOG.error(f"❌ Failed to download '{problem_alias}'. HTTP status: {response.status}")
+            LOG.error(f"❌ Failed to download '{problem_alias}'. HTTP status: {response.status}, HTTP response: {response}")
             return
 
         problem_folder = os.path.join(assignment_folder, sanitize_filename(problem_alias))
