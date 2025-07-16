@@ -157,7 +157,8 @@ def uploadProblemZip(client: omegaup.api.Client,
     elif languages == 'none':
         payload['languages'] = ''
 
-    files = {'problem_contents': open(zipPath, 'rb')}
+    with open(zipPath, 'rb') as f:
+        files = {'problem_contents': f}
 
     client.query(endpoint, payload, files)
 
