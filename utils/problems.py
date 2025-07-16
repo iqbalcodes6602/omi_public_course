@@ -168,13 +168,16 @@ def problems(allProblems: bool = False,
     changes = subprocess.check_output(
         ['git', 'diff', '--name-only', '--diff-filter=AMDR', commitRange],
         cwd=rootDirectory,
-        universal_newlines=True)
+        universal_newlines=True,
+    )
+
+    changed_files = set(changes.strip().split('\n'))
 
     problems: List[Problem] = []
     for problem in configProblems:
         logging.info('Loading %s.', problem.title)
 
-        if problem.path not in changes:
+        if problem.path not in changed_files:
             logging.info('No changes to %s. Skipping.', problem.title)
             continue
         problems.append(problem)
