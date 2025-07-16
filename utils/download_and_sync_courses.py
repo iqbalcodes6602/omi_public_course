@@ -83,16 +83,11 @@ def download_and_unzip(problem_alias: str, assignment_folder: str):
         conn.request("GET", path, headers=headers)
         response = conn.getresponse()
 
-        response_body = response.read().decode(errors="replace")  # Read response body as text (or bytes if needed)
-
         if response.status == 404:
             LOG.warning(f"⚠️  Problem '{problem_alias}' not found or access denied (404).")
             return
         elif response.status != 200:
-            LOG.error(
-                f"❌ Failed to download '{problem_alias}'. "
-                f"HTTP status: {response.status}, Response body: {response_body}"
-            )
+            LOG.error(f"❌ Failed to download '{problem_alias}'. HTTP status: {response.status}")
             return
 
         problem_folder = os.path.join(assignment_folder, sanitize_filename(problem_alias))
