@@ -159,8 +159,7 @@ def uploadProblemZip(client: omegaup.api.Client,
 
     with open(zipPath, 'rb') as f:
         files = {'problem_contents': f}
-
-    client.query(endpoint, payload, files)
+        client.query(endpoint, payload, files)
 
     if exists:
         course_alias = misc.get('course_alias', '')
