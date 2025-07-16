@@ -20,7 +20,7 @@
       "languages": "",
       "has_submissions": false,
       "points": 0,
-      "commit": "ba1dbdf9246463c7d8717a4066f0a004dfcd4af6",
+      "commit": "0bf6284a0d54c9f69dfbf6ac4d645e9eaf135238",
       "version": "064fe866b1047bb60fff9a33d131da30ec8c361d",
       "is_extra_problem": false,
       "letter": "A",
@@ -78,5 +78,5 @@
   "problemset_id": 47619,
   "admin": true,
   "status": "ok",
-  "_id": "687771fa4278e495788192"
+  "_id": "6877830c27dd1443877850"
 }
