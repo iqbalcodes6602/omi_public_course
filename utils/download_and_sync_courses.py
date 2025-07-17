@@ -49,6 +49,8 @@ def sanitize_filename(name: str) -> str:
 
 def get_course_details(course_alias: str, course_base_folder: str) -> Dict[str, Any]:
     details = get_json("/api/course/details/", {"alias": course_alias})
+    details.pop("assignments", None)
+
     course_folder = os.path.join(course_base_folder, course_alias)
     os.makedirs(course_folder, exist_ok=True)
 
@@ -170,9 +172,9 @@ def main():
                     assignment_folder = os.path.join(course_folder, assignment_alias)
                     os.makedirs(assignment_folder, exist_ok=True)
 
-                    assignment_settings_path = os.path.join(assignment_folder, "assignment_settings.json")
-                    with open(assignment_settings_path, "w", encoding="utf-8") as f:
-                        json.dump(details, f, indent=2, ensure_ascii=False)
+                    # assignment_settings_path = os.path.join(assignment_folder, "assignment_settings.json")
+                    # with open(assignment_settings_path, "w", encoding="utf-8") as f:
+                    #     json.dump(details, f, indent=2, ensure_ascii=False)
 
                     problems = details.get("problems", [])
 
