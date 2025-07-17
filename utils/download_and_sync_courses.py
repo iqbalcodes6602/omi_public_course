@@ -86,12 +86,14 @@ def download_and_unzip(problem_alias: str, assignment_folder: str):
         response_body = response.read()
 
         if response.status == 404:
+            response_body = response.read()
             LOG.warning(
                 f"⚠️  Problem '{problem_alias}' not found or access denied (404). "
                 f"Response body:\n{response_body.decode(errors='ignore')}"
             )
             return
         elif response.status != 200:
+            response_body = response.read()
             LOG.error(f"❌ Failed to download '{problem_alias}'. HTTP status: {response.status}")
             LOG.error(f"❌ Response body:\n{response_body.decode(errors='ignore')}")
             return
