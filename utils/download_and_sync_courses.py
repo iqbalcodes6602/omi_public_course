@@ -49,6 +49,8 @@ def sanitize_filename(name: str) -> str:
 
 def get_course_details(course_alias: str, course_base_folder: str) -> Dict[str, Any]:
     details = get_json("/api/course/details/", {"alias": course_alias})
+    details.pop("assignments", None)
+
     course_folder = os.path.join(course_base_folder, course_alias)
     os.makedirs(course_folder, exist_ok=True)
 
@@ -60,8 +62,18 @@ def get_course_details(course_alias: str, course_base_folder: str) -> Dict[str, 
     return details
 
 
-def get_assignments(course_alias: str):
-    return get_json("/api/course/listAssignments/", {"course_alias": course_alias})["assignments"]
+
+def get_assignment_details(course_alias: str, assignment_alias: str):
+    details = get_json("/api/course/assignmentDetails/", {
+        "course": course_alias,
+        "assignment": assignment_alias
+    })
+
+    # Remove unwanted fields
+    details.pop("problems", None)
+    details.pop("courseAssignments", None)
+    return details
+
 
 
 def get_assignment_details(course_alias: str, assignment_alias: str):
