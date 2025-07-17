@@ -164,7 +164,7 @@ def main():
         LOG.info(f"📘 Starting course: {course_alias}")
         try:
             course_details = get_course_details(course_alias, BASE_COURSE_FOLDER)
-            assignments = get_assignments(course_alias)
+            assignments = get_assignment_details(course_alias)
 
             if not assignments:
                 LOG.warning(f"No assignments found in {course_alias}.")
