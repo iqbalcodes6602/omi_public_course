@@ -9,13 +9,13 @@
       "assignment_type": "lesson",
       "start_time": 1742827620,
       "finish_time": 1742845620,
-      "max_points": 0,
+      "max_points": 100,
       "order": 1,
       "has_runs": false,
       "scoreboard_url": "ywGLsrRBR6KNjvHEXaRhzmqGavaUPC",
       "scoreboard_url_admin": "53Yu7pB9qyn9hcNHdg3KHjyUEDMSG3",
       "opened": true,
-      "problemCount": 1
+      "problemCount": 2
     },
     {
       "problemset_id": 47620,
@@ -26,13 +26,13 @@
       "assignment_type": "homework",
       "start_time": 1742827620,
       "finish_time": 1742845620,
-      "max_points": 0,
+      "max_points": 100,
       "order": 3,
       "has_runs": false,
       "scoreboard_url": "rqjv8wNh32LW97DDWvpecwWGpQYGw2",
       "scoreboard_url_admin": "EVZ6mFjBBe26RSwvw8tm2cmeduH4ph",
       "opened": true,
-      "problemCount": 2
+      "problemCount": 3
     }
   ],
   "clarifications": [],
@@ -82,5 +82,5 @@
   "unlimited_duration": false,
   "student_count": 1,
   "status": "ok",
-  "_id": "687771fa01967108840566"
+  "_id": "687908b5c4434016475885"
 }
