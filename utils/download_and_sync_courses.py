@@ -67,15 +67,10 @@ def get_assignments(course_alias: str):
 
 
 def get_assignment_details(course_alias: str, assignment_alias: str):
-    details = get_json("/api/course/assignmentDetails/", {
+    return get_json("/api/course/assignmentDetails/", {
         "course": course_alias,
         "assignment": assignment_alias
     })
-
-    # Remove unwanted fields
-    details.pop("problems", None)
-    details.pop("courseAssignments", None)
-    return details
 
 
 def download_and_unzip(problem_alias: str, assignment_folder: str):
@@ -177,9 +172,9 @@ def main():
                     assignment_folder = os.path.join(course_folder, assignment_alias)
                     os.makedirs(assignment_folder, exist_ok=True)
 
-                    assignment_settings_path = os.path.join(assignment_folder, "assignment_settings.json")
-                    with open(assignment_settings_path, "w", encoding="utf-8") as f:
-                        json.dump(details, f, indent=2, ensure_ascii=False)
+                    # assignment_settings_path = os.path.join(assignment_folder, "assignment_settings.json")
+                    # with open(assignment_settings_path, "w", encoding="utf-8") as f:
+                    #     json.dump(details, f, indent=2, ensure_ascii=False)
 
                     problems = details.get("problems", [])
 
