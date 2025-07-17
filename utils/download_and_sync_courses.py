@@ -83,11 +83,17 @@ def download_and_unzip(problem_alias: str, assignment_folder: str):
         conn.request("GET", path, headers=headers)
         response = conn.getresponse()
 
+        response_body = response.read()
+
         if response.status == 404:
-            LOG.warning(f"⚠️  Problem '{problem_alias}' not found or access denied (404).")
+            LOG.warning(
+                f"⚠️  Problem '{problem_alias}' not found or access denied (404). "
+                f"Response body:\n{response_body.decode(errors='ignore')}"
+            )
             return
         elif response.status != 200:
             LOG.error(f"❌ Failed to download '{problem_alias}'. HTTP status: {response.status}")
+            LOG.error(f"❌ Response body:\n{response_body.decode(errors='ignore')}")
             return
 
         problem_folder = os.path.join(assignment_folder, sanitize_filename(problem_alias))
@@ -95,11 +101,7 @@ def download_and_unzip(problem_alias: str, assignment_folder: str):
 
         zip_path = os.path.join(problem_folder, f"{problem_alias}.zip")
         with open(zip_path, "wb") as f:
-            while True:
-                chunk = response.read(8192)
-                if not chunk:
-                    break
-                f.write(chunk)
+            f.write(response_body)
 
         try:
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
