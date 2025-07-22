@@ -1,5 +1,4 @@
 {
-  "clarifications": [],
   "name": "OMI Public Course",
   "description": "demo description",
   "objective": "demo objective",
@@ -46,5 +45,5 @@
   "unlimited_duration": false,
   "student_count": 1,
   "status": "ok",
-  "_id": "68791f9b3df17393827195"
+  "_id": "687faeee51641134767324"
 }
