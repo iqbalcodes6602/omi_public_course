@@ -1,5 +1,7 @@
 {
     "add_problem":[
+    ],
+    "remove_problem":[
         {
             "course_alias": "omi-public-course",
             "assignment_alias": "intro",
@@ -12,7 +14,5 @@
             "problem_alias": "Contest-Start",
             "points": 100
         }
-    ],
-    "remove_problem":[
     ]
 }
