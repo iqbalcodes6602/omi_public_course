@@ -274,6 +274,14 @@ def main():
     process_remove(data, problems_data)
     save_problems_json(problems_data)
 
+    # Reset add/remove arrays in input JSON
+    try:
+        with open(input_path, "w", encoding="utf-8") as f:
+            json.dump({"add_problem": [], "remove_problem": []}, f, indent=2, ensure_ascii=False)
+        LOG.info(f"🧹 Cleared 'add_problem' and 'remove_problem' arrays in {input_path}")
+    except Exception as e:
+        LOG.error(f"❌ Failed to reset {input_path}: {e}")
+
 
 if __name__ == "__main__":
     main()
