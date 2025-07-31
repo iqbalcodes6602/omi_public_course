@@ -1,7 +1,7 @@
 ---
 name: Typo/Correction Issue
 about: Report a typo, error, or correction needed in course content
-title: "[TYPO] "
+title: "[Correction] "
 labels: ["typo", "correction"]
 assignees: []
 ---
