@@ -1,6 +1,9 @@
 ## Description
 <!-- Provide a brief description of the changes made -->
 
+## Issue
+Fixes: #
+
 ## Type of Change
 <!-- What type of change does your PR introduce? -->
 - [ ] Bug fix (non-breaking change which fixes an issue)
