@@ -1,7 +1,7 @@
 name: Lint
 
 on:
-  pull_request:
+  push:
 
 env:
   GIT_USERNAME: ${{ github.actor }}
