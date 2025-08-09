@@ -2,9 +2,9 @@ name: Test and Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main2]
   pull_request:
-    branches: [main]
+    branches: [main2]
   workflow_dispatch:
 
 env:
