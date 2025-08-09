@@ -9,6 +9,25 @@ env:
   FIX_COMMIT_MESSAGE: Fixed /hook_tools/lint.py lints
 
 jobs:
+  validate-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          submodules: true
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+      
+      - name: Validate content structure
+        run: |
+          cd utils
+          python validate_content.py
+          
   lint:
     runs-on: ubuntu-latest
     steps:
