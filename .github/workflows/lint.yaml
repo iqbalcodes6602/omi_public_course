@@ -54,11 +54,11 @@ jobs:
 
       - name: Lint
         run: |
-          git show ${{ github.event.pull_request.head.sha }} --format=%s --no-patch --no-color
+          COMMIT_MSG="$(git show ${{ github.event.pull_request.head.sha }} --format=%s --no-patch --no-color)"
+          echo "Current commit message: $COMMIT_MSG"
 
-          if [[ "$(git show ${{ github.event.pull_request.head.sha }} --format=%s --no-patch --no-color)" == "${{ env.FIX_COMMIT_MESSAGE }}" ]]; then
-            # The previous commit is a lint-fix commit, do not attempt to
-            # re-run the linter.
+          if [[ "$COMMIT_MSG" == "${{ env.FIX_COMMIT_MESSAGE }}" ]]; then
+            echo "Lint fix commit detected, only validating..."
             ./utils/lint \
               --command-name="utils/lint" \
               --diagnostics-output=github \
@@ -66,26 +66,11 @@ jobs:
             exit 0
           fi
 
+          echo "Running lint with auto-fix..."
           ./utils/lint \
             --command-name="utils/lint" \
             --diagnostics-output=github \
             fix --all && exit 0 || true
 
-          # The linter was able to find some fixable things.
-
-          # Authenticate with GitHub.
-          git config --global user.name "${{ env.GIT_USERNAME }}"
-          git config --global user.email "${{ env.GIT_USERNAME }}@users.noreply.github.com"
-          cat <<- EOF > $HOME/.netrc
-          machine github.com
-          login ${{ env.GIT_USERNAME }}
-          password ${{ env.GIT_PASSWORD }}
-          machine api.github.com
-          login ${{ env.GIT_USERNAME }}
-          password ${{ env.GIT_PASSWORD }}
-          EOF
-          chmod 600 $HOME/.netrc
-
-          # Now push that commit to the source branch.
-          git commit -am "${{ env.FIX_COMMIT_MESSAGE }}"
-          git push origin HEAD:${{ github.head_ref }}
+          echo "Lint fixes were found. Please run './utils/lint fix --all' locally and commit the changes."
+          exit 1
