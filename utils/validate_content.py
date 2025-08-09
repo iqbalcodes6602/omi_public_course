@@ -16,25 +16,46 @@ from typing import List
 
 def get_changed_files(repo_root: str) -> List[str]:
     """Get list of changed files using git diff."""
-    # Try to get commit range from environment variables
     env = os.environ
     commit_range = None
+    base_ref = None
     
-    if env.get('TRAVIS_COMMIT_RANGE'):
-        commit_range = env['TRAVIS_COMMIT_RANGE']
-    elif env.get('CIRCLE_COMPARE_URL'):
-        commit_range = env['CIRCLE_COMPARE_URL'].split('/')[6]
-    elif env.get('GITHUB_BASE_COMMIT'):
-        commit_range = env['GITHUB_BASE_COMMIT'] + '...HEAD'
-    else:
-        # Default to comparing with the main branch
-        commit_range = 'origin/main...HEAD'
+    # For GitHub Actions PR events
+    if env.get('GITHUB_EVENT_NAME') == 'pull_request':
+        base_ref = env.get('GITHUB_BASE_REF', 'main')
+        commit_range = f'origin/{base_ref}...HEAD'
+    # For push events
+    elif env.get('GITHUB_EVENT_NAME') == 'push':
+        before_sha = env.get('GITHUB_BEFORE_SHA')
+        if before_sha and before_sha != '0000000000000000000000000000000000000000':
+            commit_range = f'{before_sha}..HEAD'
+    
+    # Fallback options
+    if not commit_range:
+        if env.get('GITHUB_BASE_COMMIT'):
+            commit_range = env['GITHUB_BASE_COMMIT'] + '...HEAD'
+        else:
+            # Default to comparing with the main branch
+            base_ref = 'main'
+            commit_range = 'origin/main...HEAD'
 
+    print(f"Using commit range: {commit_range}")
+    
     try:
+        # Ensure we have the base ref for comparison
+        if base_ref:
+            subprocess.check_call(
+                ['git', 'fetch', '--depth=1', 'origin', f'refs/heads/{base_ref}:refs/remotes/origin/{base_ref}'],
+                cwd=repo_root,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+        
         changes = subprocess.check_output(
             ['git', 'diff', '--name-only', '--diff-filter=AMDR', commit_range],
             cwd=repo_root,
-            universal_newlines=True)
+            universal_newlines=True
+        )
         return changes.splitlines()
     except subprocess.CalledProcessError as e:
         print(f"❌ Failed to get git diff: {e}")
@@ -135,10 +156,14 @@ def main():
         # Get changed files
         changed_files = get_changed_files(repo_root)
         print(f"\nFound {len(changed_files)} changed files in git diff")
+        if changed_files:
+            print("Changed files:")
+            for file in changed_files:
+                print(f" - {file}")
         
         # Load problems from problems.json
         problems = load_problems_from_json(repo_root)
-        print(f"Found {len(problems)} problems in problems.json")
+        print(f"\nFound {len(problems)} problems in problems.json")
         
         if not problems:
             print("❌ No problems found in problems.json")
