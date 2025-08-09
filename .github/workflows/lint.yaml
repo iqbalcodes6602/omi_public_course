@@ -52,25 +52,19 @@ jobs:
       - name: Pull container
         run: ./utils/lint --only-pull-image
 
-      - name: Lint
+      - name: Validate lint
         run: |
-          COMMIT_MSG="$(git show ${{ github.event.pull_request.head.sha }} --format=%s --no-patch --no-color)"
-          echo "Current commit message: $COMMIT_MSG"
-
-          if [[ "$COMMIT_MSG" == "${{ env.FIX_COMMIT_MESSAGE }}" ]]; then
-            echo "Lint fix commit detected, only validating..."
-            ./utils/lint \
-              --command-name="utils/lint" \
-              --diagnostics-output=github \
-              validate --all
-            exit 0
-          fi
-
-          echo "Running lint with auto-fix..."
-          ./utils/lint \
+          echo "Running lint validation..."
+          if ! ./utils/lint \
             --command-name="utils/lint" \
             --diagnostics-output=github \
-            fix --all && exit 0 || true
-
-          echo "Lint fixes were found. Please run './utils/lint fix --all' locally and commit the changes."
-          exit 1
+            validate --all; then
+            echo "❌ Lint errors detected."
+            echo "💡 Please run the following locally to fix them:"
+            echo ""
+            echo "    ./utils/lint fix --all"
+            echo "    git commit -am 'Fix lints'"
+            echo "    git push"
+            echo ""
+            exit 1
+          fi
