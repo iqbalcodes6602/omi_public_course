@@ -18,6 +18,18 @@ jobs:
           fetch-depth: 0
           submodules: true
       
+      - name: Set base commit (pull request)
+        run: |
+          echo "GITHUB_BASE_COMMIT=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
+          echo "GITHUB_CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+        if: github.ref != 'refs/heads/main'
+
+      - name: Set base commit (main)
+        run: |
+          echo "GITHUB_BASE_COMMIT=${{ github.event.before }}" >> $GITHUB_ENV
+          echo "GITHUB_CURRENT_COMMIT=${{ github.event.after }}" >> $GITHUB_ENV
+        if: github.ref == 'refs/heads/main'
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
