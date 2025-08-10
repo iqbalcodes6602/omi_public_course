@@ -3,7 +3,7 @@ name: Lint
 on:
   push:
     branches:
-      - modify-assignments
+      - testing-the-course-validation
 
 env:
   GIT_USERNAME: ${{ github.actor }}
