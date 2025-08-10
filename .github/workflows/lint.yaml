@@ -1,7 +1,9 @@
 name: Lint
 
 on:
-  pull_request:
+  push:
+    branches:
+      - modify-assignments
 
 env:
   GIT_USERNAME: ${{ github.actor }}
