@@ -1,6 +1,6 @@
 # Input
 
-Two numbers, $a$ and $b$. update 2
+Two numbers, $a$ and $b$. update 1
 
 # Output
 
